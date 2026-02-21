@@ -5,7 +5,7 @@
   <img src="docs/piece_model.png" width="48%" style="margin-left: 2%;" />
 </p>
 
-🌐 Live Demo: 
+🌐 Live Demo: [r3f-mechanical-demo.netlify.app/](https://r3f-mechanical-demo.netlify.app/)
 
 ---
 
