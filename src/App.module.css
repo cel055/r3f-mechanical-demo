@@ -1,0 +1,39 @@
+/* Used: app mount node
+    When: app boot
+    Why: ensures full-page sizing for the app */
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+/* Used: top-level layout component
+    When: always (application root)
+    Why: establishes site-wide flex layout, background and base text color */
+.app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: #131313;
+    color: #e6e6e6;
+    overflow: hidden;
+}
+
+/* Used: main viewport container (renderer + overlays)
+    When: always in the primary view
+    Why: provides positioning and column layout for renderer and UI */
+.viewport {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Used: WebGL / r3f canvas element
+    When: when rendering the 3D scene
+    Why: forces the renderer to fill available area */
+.canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

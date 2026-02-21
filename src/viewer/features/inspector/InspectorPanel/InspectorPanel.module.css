@@ -1,0 +1,160 @@
+/* Used: Inspector container component
+   When: inspector sidebar is visible
+   Why: defines width, stacking and visual separation from canvas */
+.panel {
+  width: 320px;
+  height: 100%;
+  background: #1a1a1a;
+  border-left: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+/* Used: minimized inspector state (collapsed)
+   When: user collapses the inspector
+   Why: provide a compact affordance while saving horizontal space */
+.panelCollapsed {
+  width: 40px;
+  height: 100%;
+  background: #1a1a1a;
+  border-left: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+}
+
+/* Used: panel header (title + controls)
+   When: always at the top of the inspector
+   Why: groups title and action controls visually */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #2a2a2a;
+  background: #1f1f1f;
+}
+
+/* Used: header title text
+   When: header is rendered
+   Why: identifies the inspector panel */
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e6e6e6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Used: collapse/expand control button
+   When: header present
+   Why: allows user to toggle inspector visibility */
+.toggleBtn {
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  color: #888;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Used: hover state for the toggle button
+   When: pointer is over the toggle button
+   Why: provide hover affordance */
+.toggleBtn:hover {
+  background: #2a2a2a;
+  border-color: #4a4a4a;
+  color: #fff;
+}
+
+/* Used: small notification badge (optional)
+   When: a notification needs to be shown
+   Why: unobtrusive indicator for small updates */
+.notificationBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  background: #4CAF50;
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Used: inspector content area (cards / empty state)
+   When: inspector displays details
+   Why: provides scrolling, padding and vertical rhythm for cards */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Used: scrollbar styling for the inspector content area
+   When: content is scrollable
+   Why: visually match panel theme */
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+@media (max-width: 1400px) {
+  /* Used: panel width reduction for medium screens
+     When: viewport <= 1400px
+     Why: save horizontal space on medium displays */
+  .panel {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Used: panel and content spacing for smaller screens
+     When: viewport <= 1200px
+     Why: improve layout on smaller viewports */
+  .panel {
+    width: 260px;
+  }
+  
+  .content {
+    padding: 12px;
+    gap: 10px;
+  }
+}

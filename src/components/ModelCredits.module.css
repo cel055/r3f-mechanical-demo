@@ -1,0 +1,84 @@
+/* Used: attribution overlay for 3D model
+   When: always visible on viewport
+   Why: legal requirement for CC BY 4.0 license compliance */
+.credits {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 8px 16px;
+  
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+  color: #e6e6e6;
+  
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  
+  pointer-events: auto;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.box{
+  background: rgba(80, 80, 80, 0);
+  transition: background 0.3s ease;
+  border: 1px solid rgba(180, 180, 180, 0.8);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.credits:hover {
+  opacity: 1;
+}
+
+.box:hover {
+  background: rgba(80, 80, 80, 0.8);
+}
+
+/* Used: each text line in credits
+   When: displaying attribution information
+   Why: spacing control between lines */
+.credits p {
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* Used: model name line
+   When: displaying model title
+   Why: slight emphasis compared to other text */
+.modelName {
+  font-weight: 500;
+}
+
+/* Used: author/license line
+   When: displaying attribution details
+   Why: standard text weight */
+.author {
+  font-size: 10px;
+}
+
+/* Used: optimization notice line
+   When: displaying modification info
+   Why: smaller, subtle text for technical note */
+.optimization {
+  font-size: 9px;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* Used: clickable links in credits
+   When: linking to source/author/license
+   Why: maintain readability while indicating interactivity */
+.link {
+  color: #4a9eff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #6bb3ff;
+  text-decoration: underline;
+}

@@ -1,0 +1,156 @@
+/* Used: inspector detail card container
+  When: rendering any info card inside the inspector
+  Why: visual container with padding, border and hover affordance */
+.card {
+  background: #252525;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Used: card hover state
+  When: pointer is over a `.card`
+  Why: provide visual emphasis and affordance on hover */
+.card:hover {
+  border-color: #3a3a3a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Used: header row inside the card (icon + title)
+  When: card is rendered with a title/icon
+  Why: groups the icon and title and separates them from body */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* Used: icon element beside the card title
+  When: a card includes an identifying icon
+  Why: small visual indicator for card type */
+.cardIcon {
+  font-size: 16px;
+}
+
+/* Used: title text inside the card header
+  When: header is rendered
+  Why: identifies the card content */
+.cardTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Used: main body area of the card
+  When: card contains details or rows
+  Why: vertical layout container for card content */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Used: key/value row inside card body
+  When: card shows labeled values
+  Why: aligns label and value columns */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+}
+
+/* Used: left-column label in card rows
+  When: a row requires a descriptive label
+  Why: provides context for the corresponding value */
+.label {
+  color: #888;
+  font-weight: 500;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+/* Used: right-column value in card rows
+  When: displaying the value for a label
+  Why: visually separates value from label and supports wrapping */
+.value {
+  color: #e6e6e6;
+  text-align: right;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* Used: prominent part name heading inside a part card
+  When: showing the selected part's name
+  Why: emphasizes the part title for quick recognition */
+.partName {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  word-break: break-word;
+}
+
+/* Used: part number / code text
+  When: displaying part metadata
+  Why: shows a compact identifier in monospace */
+.partNumber {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+  font-family: 'Courier New', monospace;
+}
+
+/* Used: path/code chip inside card
+  When: showing hierarchical path or code snippets
+  Why: compactly displays path with monospace formatting */
+.pathChip {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  color: #aaa;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+/* Used: empty-state container shown when no detail is available
+  When: inspector has no selected part or details to display
+  Why: communicates that there's nothing to show in a gentle way */
+.emptyState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  color: #666;
+}
+
+/* Used: large icon displayed in the empty state
+  When: empty state is active
+  Why: visual affordance to reduce perceived emptiness */
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Used: supporting message text for empty state
+  When: empty state is active
+  Why: explains why the panel is empty or provides next steps */
+.emptyText {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+}

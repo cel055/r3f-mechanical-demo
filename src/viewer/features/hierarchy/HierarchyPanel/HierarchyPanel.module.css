@@ -1,0 +1,263 @@
+/* Used: hierarchy sidebar component
+  When: hierarchy view is visible
+  Why: contains the scene object tree and filter controls */
+.panel {
+  width: 350px;
+  background: #0f0f0f;
+  border-right: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  order: -1;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Used: header area in the hierarchy panel
+  When: panel is visible
+  Why: branded header and container for header controls */
+.panelHeader {
+  background: linear-gradient(135deg, #1a3d2a 0%, #0d2416 100%);
+  padding: 20px 16px;
+  border-bottom: 2px solid #2f6c40;
+}
+
+/* Used: row inside header containing title and controls
+   When: header is rendered
+   Why: aligns title and header controls */
+.panelTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Used: panel title text
+  When: header is rendered
+  Why: shows the panel name with a small icon */
+.panelTitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7ccc9f;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+
+/* Used: decorative icon before panel title
+   When: title is present
+   Why: small visual indicator */
+.panelTitle::before {
+  content: "🔧 ";
+  margin-right: 4px;
+}
+
+/* Used: small header action buttons (expand, focus, etc.)
+  When: header controls are present
+  Why: consistent action button styling and active state */
+.globalBtn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid #2f3d33;
+  background: #141814;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* Used: focus styles for header action buttons
+   When: a header button receives keyboard focus
+   Why: remove default outline and keep UI consistent */
+.globalBtn:focus,
+.globalBtn:focus-visible {
+  outline: none;
+}
+
+/* Used: hover state for header buttons
+   When: pointer hovers a header button
+   Why: visual feedback on hover */
+.globalBtn:hover:not(:disabled) {
+  background: #1a261d;
+  border-color: #2f6c40;
+  transform: scale(1.05);
+}
+
+/* Used: active press state for header buttons
+   When: header button is pressed
+   Why: tactile press feedback */
+.globalBtn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* Used: disabled state for header buttons
+   When: button is disabled
+   Why: show non-interactive appearance */
+.globalBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Used: active state for header buttons
+  When: an action is active (toggled)
+  Why: visually indicates the active control */
+.globalBtnActive {
+  background: linear-gradient(135deg, #2a5839 0%, #1d3d2a 100%);
+  border-color: #3d8f55;
+  box-shadow: 0 0 12px rgba(47, 108, 64, 0.4);
+}
+
+/* Used: label showing currently selected item
+  When: an item is selected in the hierarchy
+  Why: displays the selection summary */
+.panelSelected {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+/* Used: emphasized part of the selected label
+   When: selection label contains highlighted text
+   Why: visually emphasize the selected part */
+.panelSelected span {
+  color: #7ccc9f;
+  font-weight: 600;
+}
+
+/* Used: scrollable list area for hierarchy items
+  When: listing nodes
+  Why: provides scrolling container and custom scrollbar */
+.panelContent {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px 8px;
+}
+
+/* Used: custom scrollbar track and thumb for panel content
+   When: panelContent is scrollable
+   Why: small, theme-matching scrollbar */
+.panelContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panelContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panelContent::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+.panelContent::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Used: empty state placeholder when no items match filters
+  When: filter returns no results
+  Why: friendly message to the user */
+.panelEmpty {
+  padding: 16px;
+  color: #6a6a6a;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Used: filter controls container
+  When: user needs to filter/search the hierarchy
+  Why: groups inputs and checkboxes used to limit visible nodes */
+.filterControls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: stretch;
+  margin: 8px 0 12px 0;
+}
+
+/* Used: text input for filtering the hierarchy
+  When: user types a search query
+  Why: captures filter text and maintains visual consistency */
+.filterInput {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+  background: #0b0b0b;
+  color: #d6efe0;
+  font-size: 13px;
+}
+
+/* Used: labels next to filter checkboxes
+   When: filter options are shown
+   Why: provide clear text labels for checkbox options */
+.filterCheckboxLabel{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #c7d8ce;
+}
+
+/* Used: meta row near filter input (counts, buttons)
+   When: filter controls are rendered
+   Why: groups auxiliary controls like match count and expand button */
+.filterMeta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Used: match count label near filter controls
+  When: filter is active
+  Why: shows how many items matched the query */
+.matchCount {
+  color: #9bcaae;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 3px;
+  margin-right: auto;
+}
+
+/* Used: expand/collapse all button
+  When: user wants to open/close all nodes
+  Why: convenience control for tree navigation */
+.expandAllBtn {
+  border-radius: 6px;
+  border: 1px solid #2f3d33;
+  background: #141814;
+  color: #c7d8ce;
+  font-size: 12px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+/* Used: disabled state for expand/collapse all button
+   When: action is unavailable
+   Why: indicate non-interactive state */
+.expandAllBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Used: container for additional header controls
+   When: header contains extra action elements
+   Why: spacing between header and controls */
+.headerControls {
+  padding: 8px 0 0 0;
+}
+
+/* Used: disabled state for filter input
+   When: filter input is disabled
+   Why: indicate non-interactive input */
+.filterInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

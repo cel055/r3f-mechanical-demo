@@ -1,0 +1,79 @@
+/* Used: container for the explosion slider UI (floating control)
+   When: explosion controls are shown
+   Why: floating control to manipulate explosion amount */
+.container {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  min-width: 220px;
+  background: rgba(20, 20, 20, 0.9);
+  color: #eee;
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Used: header row containing label and reset control
+   When: slider UI is visible
+   Why: shows label and quick reset action */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+/* Used: label for the slider
+   When: slider UI is visible
+   Why: identifies the control */
+.label {
+  color: #9bcaae;
+}
+/* Used: numeric value display for slider
+   When: slider value is shown
+   Why: display exact numeric explosion amount */
+.value {
+  color: #c7d8ce;
+  font-variant-numeric: tabular-nums;
+}
+/* Used: row layout for slider + value
+   When: rendering slider with adjacent value
+   Why: align slider and numeric display */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Used: native range input (slider)
+   When: explosion slider rendered
+   Why: style the browser range input */
+.slider {
+  flex: 1;
+  accent-color: #3d8f55;
+}
+/* Used: reset button for returning explosion to default
+   When: user wants to restore default explosion
+   Why: quick reset control */
+.reset {
+  border-radius: 6px;
+  border: 1px solid #2f3d33;
+  background: #141814;
+  color: #c7d8ce;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.reset:hover:not(:disabled) {
+  background: #1a261d;
+  border-color: #2f6c40;
+}
+
+.reset:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
