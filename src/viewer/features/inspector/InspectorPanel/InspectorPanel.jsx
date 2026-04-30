@@ -5,6 +5,7 @@ import { PartNameCard } from "../InspectorDetailCards/PartNameCard";
 import { SpecificationsCard } from "../InspectorDetailCards/SpecificationsCard";
 import { MaintenanceCard } from "../InspectorDetailCards/MaintenanceCard";
 import { HierarchyCard } from "../InspectorDetailCards/HierarchyCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./InspectorPanel.module.css";
 
 /**
@@ -39,7 +40,7 @@ export function InspectorPanel() {
           onClick={togglePanel}
           title="Show Details"
         >
-          ◀{partData && <span className={styles.notificationBadge}></span>}
+          <ChevronLeft size={18} color="#d7d7d7" strokeWidth={2.5} />{partData && <span className={styles.notificationBadge}></span>}
         </button>
       </div>
     );
@@ -54,7 +55,7 @@ export function InspectorPanel() {
           onClick={togglePanel}
           title="Hide Details"
         >
-          ▶
+          <ChevronRight size={18} color="#d7d7d7" strokeWidth={2.5} />
         </button>
       </div>
 

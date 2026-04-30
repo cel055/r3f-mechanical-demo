@@ -1,11 +1,12 @@
 import { useEffect, useRef, useCallback, memo } from "react";
 import { viewerStateStore } from "../../viewerState/viewerState";
+import { Eye, EyeOff, Target } from "lucide-react";
 import styles from "./HierarchyNode.module.css";
 
 /**
  * Hierarchical tree node component for scene object representation.
  * Renders expandable/collapsible nodes with selection, visibility toggle, and isolation controls.
- * 
+ *
  * @component
  * @param {Object} props - Component props
  * @param {Object} props.node - Scene node object with id, name, and children array
@@ -75,7 +76,7 @@ export const HierarchyNode = memo(function HierarchyNode({
   /**
    * Manual double-click detection for visibility icon.
    * Timeout-based approach since native dblclick doesn't work well with stopPropagation.
-   * 
+   *
    * Interaction:
    * - Single-click (within 200ms): toggle object visibility
    * - Double-click (2 clicks within 200ms): toggle individual isolation mode
@@ -165,7 +166,7 @@ export const HierarchyNode = memo(function HierarchyNode({
                   : "Show object"
             }
           >
-            {isIndividuallyIsolated ? "🎯" : isVisible ? "👁️" : "👁️‍🗨️"}
+            {isIndividuallyIsolated ? <Target size={16} /> : isVisible ? <Eye size={16} /> : <EyeOff size={16} />}
           </span>
         </button>
       </div>

@@ -1,4 +1,5 @@
 import styles from "./cards.module.css";
+import { ClipboardList } from "lucide-react";
 
 /**
  * Part specifications card component.
@@ -17,7 +18,7 @@ export function SpecificationsCard({ partData }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <span className={styles.cardIcon}>📋</span>
+        <span className={styles.cardIcon}><ClipboardList size={20} /></span>
         <h4 className={styles.cardTitle}>Specifications</h4>
       </div>
       <div className={styles.cardBody}>

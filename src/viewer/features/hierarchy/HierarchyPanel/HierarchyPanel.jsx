@@ -4,6 +4,7 @@ import styles from "./HierarchyPanel.module.css";
 import { useHierarchyFilter } from "../hooks/useHierarchyFilter";
 import HierarchyFilterControls from "./HierarchyFilterControls";
 import { useState, useEffect, useRef, startTransition } from "react";
+import { Eye } from "lucide-react";
 
 /**
  * Main hierarchy panel component for scene object tree.
@@ -272,7 +273,7 @@ export function HierarchyPanel() {
               isolationMode ? "Show all objects" : "Isolate selected object"
             }
           >
-            👁️
+            <Eye size={18} color="#d7d7d7" />
           </button>
         </div>
 

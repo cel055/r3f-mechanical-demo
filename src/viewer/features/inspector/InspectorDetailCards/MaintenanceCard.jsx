@@ -1,4 +1,5 @@
 import styles from "./cards.module.css";
+import { Wrench } from "lucide-react";
 
 /**
  * Part maintenance history card component.
@@ -15,7 +16,7 @@ export function MaintenanceCard({ partData }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <span className={styles.cardIcon}>🔧</span>
+        <span className={styles.cardIcon}><Wrench size={20} /></span>
         <h4 className={styles.cardTitle}>Maintenance</h4>
       </div>
       <div className={styles.cardBody}>
